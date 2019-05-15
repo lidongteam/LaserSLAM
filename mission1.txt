@@ -1,0 +1,6 @@
+如果你看到这个文件，你应该已经成功拉取了该项目在GitHub上面的代码
+
+请参考该网站
+https://www.cnblogs.com/Jack-cx/p/9412940.html
+
+生成你的id_rsa 并把id_rsa.pub 发送到602922700@qq.com
