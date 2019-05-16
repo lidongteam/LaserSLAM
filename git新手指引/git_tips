@@ -1,0 +1,11 @@
+1,当目录中存在中文文件夹的时候，使用 git status 可能出现乱码
+
+	可阅读
+		
+		https://blog.csdn.net/zhanlanmg/article/details/49862779
+
+		这篇博客并解决
+
+2,修改文件权限
+
+	chomd 命令会有帮助，了解一下
