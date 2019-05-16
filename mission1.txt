@@ -39,4 +39,4 @@ http://www.cnblogs.com/greyzeng/p/6044837.html
 
 注意：做好笔记，你现在所作的即将用于大一大二的师弟师妹的培训！！
 
-linux提交完成！！！
+重启linux后提交完成！
