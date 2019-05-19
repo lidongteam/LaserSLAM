@@ -13,3 +13,7 @@
 3，为了可以从github上拉取代码，需要验证 ssh key，（windows）具体可参看
 
 	https://juejin.im/post/59daebbb6fb9a00a554fd88d
+
+4，使用 git branch --set-upstream-to origin/master
+ 
+ 将本地分支和远程 master 分支关联，之后每次提交代码，拉代码直接 git push ，git pull就ok
