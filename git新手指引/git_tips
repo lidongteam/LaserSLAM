@@ -9,3 +9,7 @@
 2,修改文件权限
 
 	chomd 命令会有帮助，了解一下
+
+3，为了可以从github上拉取代码，需要验证 ssh key，（windows）具体可参看
+
+	https://juejin.im/post/59daebbb6fb9a00a554fd88d
