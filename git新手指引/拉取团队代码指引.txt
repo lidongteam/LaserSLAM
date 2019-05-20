@@ -1,35 +1,16 @@
-﻿{
-	mkdir Team  #创建版本库
-	cd Team  #进入创建的目录
-	git init #把这个目录变成Git可以管理的仓库
-}#以下步骤在Team中进行
+﻿
+mkdir Team  #创建目录
+cd Team  #进入创建的目录
+git init #初始化一个空的git本地仓库，执行完该命令，当前目录下自动生成.git隐藏文件夹，即git版本库
+
+ls -al ~./ssh检测是否存在SSH key，没有则用ssh-keygen -t -rsa -C "Email"生成
+通过命令复制clip < ./ssh/id_rsa.pub粘贴到github上
 
 git clone git@github.com:lidongteam/LaserSLAM.git #从lidongteam中克隆项目到本地文件
 #按照自己的想法修改文件，比如已经修该了readme.txt
-git add readme.txt   #用命令git add告诉Git，把文件添加到仓库
-git commit -m "备注"  #用命令git commit告诉Git，把文件提交到仓库，-m后面输入的是本次提交的说明，可以输入任意内容。
+git add readme.txt   #用命令git add告诉Git，把文件添加到缓存区
+git commit -m "备注"  #用命令git commit告诉Git，一次性将缓存区文件提交到仓库，-m后面输入的是本次提交的说明，可以输入任意内容。
 使用命令git push -u origin master第一次推送master分支的所有内容；
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
-
-------------------------------提问--------------------------------
-1，mkdir 的意思，是创建版本库吗？
-答：mkdir在工作目录下创建子目录。
-
-2，可以详细说说 git init 做了什么吗？
-答：主要用来初始化一个空的git本地仓库。执行完该命令，当前目录下自动生成.git隐藏文件夹，即git版本库。
-
-3，为什么要git add readme.txt 呢？
-答：将文件添加到缓存。
-
-4，git push -u origin master 是什么意思呢？可以简化吗？
-答：将本地版本库的分支推送到远程服务器上对应的分支上
-git push origin master
-
-比如使用git branch --set-upstream-to origin/master
-
-之后每次都可以直接git push git pull了
-
-5，请补充一下git pull的含义和用法
-git pull :取回远程主机某个分支的更新，再与本地的指定分支合并。
-git pull [options] [<repository>] [<refspec>...]
-例：git pull origin next:master 取回origin主机的next分支，与本地的master分支合并。
+使用git branch --set-upstream-to origin/master
+之后每次都可以直接git push ,git pull了
