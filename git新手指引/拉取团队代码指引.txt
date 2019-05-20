@@ -14,3 +14,5 @@ git commit -m "备注"  #用命令git commit告诉Git，一次性将缓存区文
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 使用git branch --set-upstream-to origin/master
 之后每次都可以直接git push ,git pull了
+
+PS:team中没有权限的，folk到自己github仓库中，再从自己github上git clone
