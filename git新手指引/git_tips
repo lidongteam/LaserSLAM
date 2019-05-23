@@ -5,6 +5,7 @@
 		https://blog.csdn.net/zhanlanmg/article/details/49862779
 
 		这篇博客并解决
+	做法是 git config --global core.quotepath false
 
 2,修改文件权限
 

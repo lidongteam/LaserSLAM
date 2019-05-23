@@ -8,11 +8,14 @@ ls -al ~./ssh检测是否存在SSH key，没有则用ssh-keygen -t -rsa -C "Emai
 
 git clone git@github.com:lidongteam/LaserSLAM.git #从lidongteam中克隆项目到本地文件
 #按照自己的想法修改文件，比如已经修该了readme.txt
+
 git add readme.txt   #用命令git add告诉Git，把文件添加到缓存区
+
 git commit -m "备注"  #用命令git commit告诉Git，一次性将缓存区文件提交到仓库，-m后面输入的是本次提交的说明，可以输入任意内容。
+
 使用命令git push -u origin master第一次推送master分支的所有内容；
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
 使用git branch --set-upstream-to origin/master
 之后每次都可以直接git push ,git pull了
 
-PS:team中没有权限的，fork到自己github仓库中，再从自己github上git clone
