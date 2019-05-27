@@ -1,1 +1,3 @@
-1.推送被拒绝：git push -u origin +master?
+1.推送被拒绝：①git push -u origin +master?
+                       ②git pull --rebase origin master
+                          git push origin master
