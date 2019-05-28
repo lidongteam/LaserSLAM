@@ -1,3 +1,10 @@
-1.推送被拒绝：①git push -u origin +master?
-                       ②git pull --rebase origin master
-                          git push origin master
+Python part:
+1.python内置函数：一.raw_input()接收的为str 一般用raw_input()
+                  二.dict.items()字典(Dictionary) items() 函数以列表返回可遍历的(键, 值) 元组数组。
+				  三.reduce() reduce(function, iterable[, initializer]) function -- 函数，有两个参数 iterable -- 可迭代对象 initializer -- 可选，初始参数
+2.python注释
+3.复制列表a[:]
+Git part:
+1.推送被拒绝：一.git push -u origin +master?
+              二.git pull --rebase origin master
+                 git push origin master 
