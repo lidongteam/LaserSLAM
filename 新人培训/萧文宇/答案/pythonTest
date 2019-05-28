@@ -1,0 +1,128 @@
+5.输入三个整数x,y,z，请把这三个数由小到大输出。
+l = []
+for i in range(3):
+    x = int(raw_input('integer:\n'))
+    l.append(x)  # 向列表添加元素
+l.sort()  # 排序
+print l
+
+6.斐波那契数列。
+斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+# 使用递归
+def fib(n):
+    if n==1 or n==2:
+        return 1
+    return fib(n-1)+fib(n-2)
+ 
+# 输出了第10个斐波那契数列
+print fib(10)
+
+11.古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？ 
+f1 = 1
+f2 = 1
+for i in range(1,22):
+    print '%12ld %12ld' % (f1,f2),
+    if (i % 3) == 0:
+        print ''
+    f1 = f1 + f2
+    f2 = f1 + f2
+
+17.输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+import string
+s = raw_input('请输入一个字符串:\n')
+letters = 0
+space = 0
+digit = 0
+others = 0
+for c in s:
+    if c.isalpha():  # 字母
+        letters += 1
+    elif c.isspace():  # 空格
+        space += 1
+    elif c.isdigit():  # 数字
+        digit += 1
+    else:
+        others += 1  # 其他
+print 'char = %d,space = %d,digit = %d,others = %d' %(letters,space,digit,others)
+
+25.求1+2!+3!+...+20!的和。
+
+n = 0
+s = 0
+t = 1
+for n in range(1,21):
+    t *= n
+    s += t
+print '1! + 2! + 3! + ... + 20! = %d' % s
+
+27.利用递归函数调用方式，将所输入的5个字符，以相反顺序打印出来
+def output(s,l):  # 定义一个函数
+    if l==0:
+       return
+    print (s[l-1])
+    output(s,l-1)
+s = raw_input('Input a string:')
+l = len(s)
+output(s,l)  # 调用函数
+
+34.练习函数嵌套调用
+def hello_world():
+    print 'hello world'
+ 
+def three_hellos():
+    for i in range(3):
+        hello_world()
+if __name__ == '__main__':
+    three_hellos()
+
+36.求100之内的素数
+# 用户输入数据
+lower = int(input("输入区间最小值: "))
+upper = int(input("输入区间最大值: "))
+ 
+for num in range(lower,upper + 1):
+    # 素数大于 1
+    if num > 1:
+        for i in range(2,num):
+            if (num % i) == 0:
+                break
+        else:
+            print(num)
+
+37.对10个数进行排序（选择法）
+if __name__ == "__main__":
+    N = 10
+    # 输入十个数
+    print '请输入10个数字:\n'
+    l = []
+    for i in range(N):
+        l.append(int(raw_input('输入一个数字:\n')))
+    print
+    for i in range(N):
+        print l[i]
+    print
+ 
+    # 排列10个数字
+    for i in range(N - 1):
+        min = i
+        for j in range(i + 1,N):
+            if l[min] > l[j]:min = j
+        l[i],l[min] = l[min],l[i]
+    print '排列之后：'
+    for i in range(N):
+        print l[i]
+
+43.模仿静态变量(static)另一案例。
+class Num:
+    nNum = 1
+    def inc(self):
+        self.nNum += 1
+        print 'nNum = %d' % self.nNum
+
+if __name__ == '__main__':
+    nNum = 2
+    inst = Num()
+    for i in range(3):
+        nNum += 1
+        print 'The num = %d' % nNum
+        inst.inc()
