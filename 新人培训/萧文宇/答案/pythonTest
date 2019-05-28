@@ -4,7 +4,7 @@ for i in range(3):
     x = int(raw_input('integer:\n'))
     l.append(x)  # 向列表添加元素
 l.sort()  # 排序
-print l
+print (l)
 
 6.斐波那契数列。
 斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
@@ -15,15 +15,15 @@ def fib(n):
     return fib(n-1)+fib(n-2)
  
 # 输出了第10个斐波那契数列
-print fib(10)
+print (fib(10))
 
 11.古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？ 
 f1 = 1
 f2 = 1
 for i in range(1,22):
-    print '%12ld %12ld' % (f1,f2),
+    print ('%12ld %12ld' % (f1,f2)),
     if (i % 3) == 0:
-        print ''
+        print ('')
     f1 = f1 + f2
     f2 = f1 + f2
 
@@ -43,7 +43,7 @@ for c in s:
         digit += 1
     else:
         others += 1  # 其他
-print 'char = %d,space = %d,digit = %d,others = %d' %(letters,space,digit,others)
+print ('char = %d,space = %d,digit = %d,others = %d' (letters,space,digit,others))
 
 25.求1+2!+3!+...+20!的和。
 
@@ -53,7 +53,7 @@ t = 1
 for n in range(1,21):
     t *= n
     s += t
-print '1! + 2! + 3! + ... + 20! = %d' % s
+print ('1! + 2! + 3! + ... + 20! = %d' % s)
 
 27.利用递归函数调用方式，将所输入的5个字符，以相反顺序打印出来
 def output(s,l):  # 定义一个函数
@@ -89,40 +89,57 @@ for num in range(lower,upper + 1):
         else:
             print(num)
 
-37.对10个数进行排序（选择法）
-if __name__ == "__main__":
-    N = 10
-    # 输入十个数
-    print '请输入10个数字:\n'
-    l = []
-    for i in range(N):
-        l.append(int(raw_input('输入一个数字:\n')))
-    print
-    for i in range(N):
-        print l[i]
-    print
- 
-    # 排列10个数字
-    for i in range(N - 1):
-        min = i
-        for j in range(i + 1,N):
-            if l[min] > l[j]:min = j
-        l[i],l[min] = l[min],l[i]
-    print '排列之后：'
-    for i in range(N):
-        print l[i]
 
 43.模仿静态变量(static)另一案例。
 class Num:
     nNum = 1
     def inc(self):
         self.nNum += 1
-        print 'nNum = %d' % self.nNum
+        print ('nNum = %d' % self.nNum)
 
 if __name__ == '__main__':
     nNum = 2
     inst = Num()
     for i in range(3):
         nNum += 1
-        print 'The num = %d' % nNum
+        print( 'The num = %d' % nNum)
         inst.inc()
+
+50.输出一个随机数
+import random
+ 
+#生成 1 到 20 之间的随机数
+print random.uniform(1, 20)
+
+51.学习使用按位与 &
+if __name__ == '__main__':
+    a = 077
+    b = a & 3
+    print ('a & b = %d' % b)
+    b &= 7
+    print ('a & b = %d' % b)
+
+60.计算字符串长度。
+sStr1 = 'strlen'
+print (len(sStr1))
+
+61.打印出杨辉三角形（要求打印出10行）
+if __name__ == '__main__':
+    a = []
+    for i in range(10):
+        a.append([])
+        for j in range(10):
+            a[i].append(0)
+    for i in range(10):
+        a[i][0] = 1
+        a[i][i] = 1
+    for i in range(2,10):
+        for j in range(1,i):
+            a[i][j] = a[i - 1][j-1] + a[i - 1][j]
+    from sys import stdout
+    for i in range(10):
+        for j in range(i + 1):
+            stdout.write(str(a[i][j]))
+            stdout.write(' ')
+       
+
