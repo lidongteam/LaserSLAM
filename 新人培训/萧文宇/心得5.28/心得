@@ -1,0 +1,13 @@
+git 远程仓库笔记
+1.拉取远程仓库文档
+git clone git@github.com:lidongteam/LaserSLAM.git
+2.添加文件到缓冲区
+git add 
+3.一次性将缓冲区的文件提交到仓库
+git commit -u
+4.向远程仓库推送最新修改
+git push origin master
+5.合并（如有冲突需先解决冲突）
+git pull
+
+
