@@ -8,3 +8,4 @@ Git part:
 1.推送被拒绝：一.git push -u origin +master?
               二.git pull --rebase origin master
                  git push origin master 
+2. git add -A 是保存所有的操作，若对很多文件进行修改，可以直接使用这个指令
