@@ -1,13 +1,33 @@
-git 远程仓库学习笔记
-1.拉取远程仓库文档
+                              git 远程仓库学习笔记
+1.初始化远程仓库
+git init
+2.拉取远程仓库文档
 git clone git@github.com:lidongteam/LaserSLAM.git
-2.添加文件到缓冲区
+3.添加文件到缓冲区
 git add 
-3.一次性将缓冲区的文件提交到仓库
+4.一次性将缓冲区的文件提交到仓库
 git commit -u
-4.向远程仓库推送最新修改
+5.版本回退（已经commit)
+git reset --hard HEAD^ 退回上个版本
+git reset --hard 版本id
+6.查看版本信息
+git log  查看提交历史
+git reflog  查看命令历史
+7.向远程仓库推送最新修改
 git push origin master
-5.合并（如有冲突需先解决冲突）
+8.合并（如有冲突需先解决冲突）
 git pull
+9.查看当前文件的状态
+git status
+10.丢弃工作区的修改
+git checkout -- file
+丢弃暂存区的修改
+git reset HEAD file
+11.删除（手动删除后）
+git rm + git commit或
+git add + git commit
+撤销删除
+git checkout -- file
+
 
 
