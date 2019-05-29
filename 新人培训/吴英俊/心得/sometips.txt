@@ -1,3 +1,0 @@
-1.ÍÆËÍ±»¾Ü¾ø£º¢Ùgit push -u origin +master?
-                       ¢Úgit pull --rebase origin master
-                          git push origin master
