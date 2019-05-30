@@ -1,0 +1,15 @@
+Python part:
+1.python内置函数：一.raw_input()接收的为str 一般用raw_input()
+                  二.dict.items()字典(Dictionary) items() 函数以列表返回可遍历的(键, 值) 元组数组。
+				  三.reduce() reduce(function, iterable[, initializer]) function -- 函数，有两个参数 iterable -- 可迭代对象 initializer -- 可选，初始参数
+                  四. ord()返回对应的十进制整数
+2.python注释
+3.复制列表a[:]
+4.对于一：python3中没有raw_input，只有input，input接受的为str，输入整数时记得int
+5.if not isinstance():
+    raise 异常处理
+Git part:
+1.推送被拒绝：一.git push -u origin +master?
+              二.git pull --rebase origin master
+                 git push origin master 
+2. git add -A 是保存所有的操作，若对很多文件进行修改，可以直接使用这个指令
