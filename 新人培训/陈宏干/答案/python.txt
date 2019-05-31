@@ -4,3 +4,191 @@ for i in range(1,5):
 		for k in range(1,5):
 			if( i != k ) and (i != q) and (q != k):
 				print(i,q,k)
+
+#8
+for i in range(1,10):
+    print(end="\n")
+    for j in range(i):
+        print("{}*{}={}".format(i,j+1,i*(j+1))
+
+
+#13
+for n in range(100,1000):
+    i =n/100
+    j =n%100/10
+    k =n%10
+    if n ==i**3+j**3+k**3:
+        print(n)
+        
+#15
+score = int(input('输入数字：\n'))
+if score >=90:
+    grade ='A'
+elif score >=60:
+    grade ='B'
+else:
+    grade = 'C'
+print('%d为%s'%(score,grade))
+
+#18
+n =int(input('n= '))
+a =int(input('a= '))
+num,sum =0,0
+for i in range(1,n+1):
+    num =num*10+a
+    print(num)
+    sum=sum+num
+print('和为%d'%sum)
+
+#21
+ x=1
+for i in range(1,10):
+	x=2*(x+1)
+	print(x)
+
+
+#26
+def fn(j):
+    sum=0
+    if j==0:
+        sum=1
+    else:
+        sum =j*fn(j-1)
+    return sum
+    
+print(fact(5))
+
+#30
+a = int(input("请输入一个数字:\n"))
+x = str(a)
+flag = True
+for i in range(len(x)/2):
+    if x[i] != x[-i - 1]:
+        flag = False
+        break
+if flag:
+    print('%d 是一个回文数'%a)
+else:
+    print('%d 不是一个回文数' %a)
+    
+    
+#36
+for num in range(1,101):
+    if num > 1:
+        for i in range(2,100):
+            if(num%i==0):
+                break
+            else:
+                print(num)
+                
+
+#42
+num = 2
+def autofunc():
+	num = 5
+	print ('internal block num=',num)
+	num += 1
+for i in range(1,5):
+	print ('the num=',num)
+	num += 1
+	autofunc()
+    
+    
+#46
+def sq(x):
+    return x*x
+print('如果输入的数字小于 50，程序将停止运行。')
+flag=1
+while flag ==1:
+    num=int(input('请输入一个数字：'))
+    print('结果为:%d'%(sq(num))
+    if sq(sum) >=50:
+        flag=1
+    else:
+        flag=0
+        
+
+#51
+if __name__ == '__main__':
+    a = 077
+    b = a & 3
+    print ('a & b = %d' % b)
+    b &= 7
+    print ('a & b = %d' % b)
+
+
+#58
+from turtle import *
+width(4)
+forward(200)
+right(90)
+pencolor('red')
+for i in range(1,3):
+	forward(100)
+	right(90)
+	forward(200)
+	right(90)
+done()
+
+
+#62
+str1='abcdefg'
+str2='defg'
+print(str1.find(str2))
+
+
+#66
+n1 = int(input('n1 = :\n'))
+n2 = int(input('n2 = :\n'))
+n3 = int(input('n3 = :\n'))
+def swap(p1,p2):
+   return p2,p1
+if n1 > n2 : 
+    n1,n2 = swap(n1,n2)
+if n1 > n3 :
+    n1,n3 = swap(n1,n3)
+if n2 > n3 : 
+    n2,n3 = swap(n2,n3)
+print (n1,n2,n3)
+
+#75
+for i in range(5):
+  n = 0
+  if i != 1: 
+    n += 1
+  if i == 3:
+    n += 1
+  if i == 4: 
+    n += 1
+  if i != 4: 
+    n += 1
+  if n == 3: 
+    print (64 + i)
+    
+
+#81
+a = 809
+for i in range(10,100):
+    b = i * a
+    if b >= 1000 and b <= 10000 and 8 * i < 100 and 9 * i >= 100:
+        print(b,' = 800 * ', i, ' + 9 * ', i)
+        
+#86
+a='abcd'
+b='efgh'
+print(a+b)
+
+#92
+if __name__ == '__main__':
+    import time
+    start = time.time()
+    for i in range(1000):
+        print (i)
+    end = time.time()
+     print(end - start)
+
+
+#100
+i = ['a', 'b']
+l = [1, 2]
+print(dict([i,l]))
