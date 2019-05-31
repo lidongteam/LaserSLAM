@@ -21,3 +21,16 @@ for i in range(3):
   for k in range(5-2*i):
     stdout.write('*')
   print('\n')
+
+
+import time
+###############################
+iLen = int(input("Input length:"))  # 输入边长，比如4
+height = 2*int(iLen)-1
+for i in range(1, height+1):
+  if i <= int(iLen):
+    print(" "*(iLen-i)+"*"*(2*i-1))
+  else:
+    print(" "*(i-iLen)+"*"*(height-2*(i-iLen)))
+
+time.sleep(4)
