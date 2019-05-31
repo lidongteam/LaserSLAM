@@ -1,0 +1,303 @@
+题目1：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+代码：for i in range(1,5):
+		for j in range(1,5):
+			for k in range(1,5):
+				if(i!=j and j!=k and k!=i):
+					print(i,j,k)
+					
+题目2；将一个列表的数据复制到另一个列表中。
+代码：a=[9,8,7]
+	  b=[x for x in a]
+	  print (a,b)
+方法2：a=[9,8,7]
+	   b=a[:]
+	   print (a,b)
+
+题目3：古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又
+生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？ 
+代码：f1=1
+f2=1
+for i in range(1,20):
+    print(f1, f2,'',end='')
+    f1 = f1 + f2
+    f2 = f1 + f2
+    if(i%5==0):
+        print("")
+		
+题目4：利用条件运算符的嵌套来完成此题：学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分
+以下的用C表示。
+代码：print('输入成绩：')
+	  score=int(input())
+	  if score>=90:
+		  grade='A'
+	  elif score>=60:
+		  grade='B'
+	  else:
+		  grade='C'
+	  print(score,'对应等级为：',grade)
+	  
+题目5：一球从100米高度自由落下，每次落地后反跳回原高度的一半；再落下，求它在第10次落地时，共经过
+多少米？第10次反弹多高？
+代码：sum=0
+	  height=100
+	  for i in range(1,11):
+		  sum=sum+height
+		  height=height/2
+	  print('共经过',sum,'米')
+	  print('第十次反弹',height,'米')
+	  
+题目6：请输入星期几的第一个字母来判断一下是星期几，如果第一个字母一样，则继续判断第二个字母。
+代码：
+		letter=input('please input first letter:')
+		if letter=='M':
+			print('Monday')
+		elif letter=='T':
+			print('pleasr input second letter:')
+			letter=input()
+			if letter=='u':
+				print('Tuesday')
+			elif letter=='h':
+				print('Thursday')
+			else:
+				print('error')
+		elif letter == 'W':
+			print('Wednesday')
+		elif letter == 'F':
+			print ('Friday')
+		elif letter=='S':
+			print('please input second letter:')
+			letter=input()
+			if letter=='a':
+				print('Saturday')
+			elif letter=='u':
+				print('Sunday')
+			else:
+				print('error')
+		else:
+			print('error')
+
+题目7：求100之内的素数。
+代码：
+	for num in range(2,101):
+        for i in range(2, num):
+            if (num % i) == 0:
+                break
+        else:
+            print(num)
+			
+题目8：学习使用auto定义变量的用法。
+代码：
+		num = 2
+	def autofunc():
+		num = 5
+		print ('internal block num=',num)
+		num += 1
+	for i in range(1,5):
+		print ('the num=',num)
+		num += 1
+		autofunc()
+
+题目9：求输入数字的平方，如果平方运算后小于 50 则退出。
+代码：
+	def PF(x):
+		return x*x
+	A=1
+	while A:
+		i=int(input('输入一个数字：'))
+		if PF(i)>=50:
+			print('运算结果为：',i*i)
+			continue
+		else:
+			break
+	print('输入的数平方运算后小于50，退出')
+
+
+题目10：输出一个随机数。（1）随机输出一个实数
+代码：(1)import random
+		 a=random.uniform(1,10)
+		 print(a)
+	  （2）随机输出一个整数
+	    import random
+	    a=random.randint(1,10)
+	    print(a)
+	  （3）随机输出一个字符
+		import random
+		a=random.choice('随机选取一个字符')
+		print(a)
+
+题目11：斐波那契数列。
+代码：
+		def fib(n):
+			a=1
+			b=1
+			if n==1 or n==2:
+				return 1
+			else:
+				return fib(n-1)+fib(n-2)
+		for i in range(1,11):
+			print(fib(i))
+
+题目12：查找字符串
+代码：
+		str = 'a,hello,python'
+		print (str.find('python'))
+		
+题目13：输入3个数a,b,c，按大小顺序输出。
+代码：
+		if __name__=='__main__':
+			a=int(input('a='))
+			b = int(input('b='))
+			c = int(input('c='))
+			def swap(i,j):
+				return j,i
+			if (a>b):
+				a,b=swap(a,b)
+			if (a>c):
+				a,c= swap(a,c)
+			if (b > c):
+				b,c=swap(b,c)
+			print(a,b,c)
+
+题目14：写一个函数，求一个字符串的长度，在main函数中输入字符串，并输出其长度。
+代码：
+		if __name__ == '__main__':
+			a=input('请输入一个字符串：')
+			print(len(a))
+题目15：
+代码：编写input()和output()函数输入，输出5个学生的数据记录。
+		student=[]
+		n=5
+		for i in range(5):
+			student.append(['','',[]])
+		def input(stu):
+			for i in range(n):
+				stu[i][0]=input('input student name:\n')
+				stu[i][1]=input('input student num:\n')
+		def output(stu):
+			for i in range(n):
+				for j in range(2):
+					print(stu[i][j])
+		if __name__ == '__main__':
+			input(student)
+			output(student)
+
+题目16：编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，
+调用函数1/1+1/3+...+1/n
+代码：
+		def even(n):
+			i = 0
+			sum = 0
+			for i in range(2, n + 1, 2):
+				sum += 1 / i
+			return sum
+
+
+		def odd(n):
+			sum = 0
+			for i in range(1, n + 1, 2):
+				sum += 1 / i
+			return sum
+
+
+		def sum(f, n):
+			s = f(n)
+			return s
+
+
+		if __name__ == '__main__':
+			n = int(input('input a number:\n'))
+			if n % 2 == 0:
+				sum = sum(even, n)
+			else:
+				sum = sum(odd, n)
+			print(sum)
+
+题目17：海滩上有一堆桃子，五只猴子来分。第一只猴子把这堆桃子平均分为五份，
+多了一个，这只猴子把多的一个扔入海中，拿走了一份。第二只猴子把剩下的桃子
+又平均分成五份，又多了一个，它同样把多的一个扔入海中，拿走了一份，第三、
+第四、第五只猴子都是这样做的，问海滩上原来最少有多少个桃子？
+代码：
+		if __name__ == '__main__':
+			i=1
+			j=1
+			x=0
+			while(i<6):
+				x=j*4
+				for i in range(1,6):
+					if(x%4!=0):
+						break
+					else:
+						i=i+1
+					x=(x/4)*5+1
+				j=j+1
+			print('沙滩上原来最少有',x,'个桃子')
+
+
+题目18：两个字符串连接程序
+代码：
+		if __name__ == '__main__':
+			a = "qwqe"
+			b = "bdfdsjlnpq"
+			c = a + b
+			print(c)
+		
+题目19：列表转换为字典。 
+代码：
+		if __name__=='__main__':
+			list1=['key1','key2']
+			list2=['1','2']
+			print (dict([list1,list2]))
+	
+题目20：输入一个奇数，然后判断最少几个 9 除于该数的结果为整数。
+代码：
+		if __name__ == '__main__':
+			a=int(input('输入一个数字：'))
+			b=1
+			c=9
+			num=1
+			while(b!=0):
+				if(c%a==0):
+					b=0
+				else:
+					c=c*10+9
+					num=num+1
+			print('最少要',num,'个9才可以被整除')
+题目21：连接字符串
+代码：
+		if __name__ == '__main__':
+			a = '.'
+			b = ['hello', 'python', 'haha', 'xixi']
+			print (a.join(b))
+题目22：创建一个链表。
+代码：
+		if __name__ == '__main__':
+			a = []
+			for i in range(5):
+				num = input('请输入:')
+				a.append(num)
+			print(a)
+题目23：
+代码：
+		if __name__ == '__main__':
+			Str1 = 'strlen'
+			print (len(Str1))
+
+
+			
+题目24：计算字符串中子串出现的次数。
+代码：
+		if __name__ == '__main__':
+			str1 = input('输入第一个字符串:')
+			str2 = input('输入第二个字符串:')
+			x = str1.count(str2)
+			print (x)
+
+题目25：画图，学用circle画圆形
+代码：
+		if __name__  == '__main__':
+			import turtle
+			turtle.title("画圆")
+			turtle.color('red')#画笔颜色
+			turtle.width(3)
+			turtle.circle(30)
+			turtle.done()
