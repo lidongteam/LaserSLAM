@@ -141,5 +141,130 @@ if __name__ == '__main__':
         for j in range(i + 1):
             stdout.write(str(a[i][j]))
             stdout.write(' ')
+
+66.输入3个数a,b,c，按大小顺序输出。
+n1 = int(raw_input('n1 = :\n'))
+n2 = int(raw_input('n2 = :\n'))
+n3 = int(raw_input('n3 = :\n'))
+# 交换位置
+def swap(p1,p2):
+   return p2,p1
+
+if n1 > n2 : n1,n2 = swap(n1,n2)
+if n1 > n3 : n1,n3 = swap(n1,n3)
+if n2 > n3 : n2,n3 = swap(n2,n3)
+
+print (n1,n2,n3)
+
+69.有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位
+    nmax = 50
+    n = int(raw_input('请输入总人数:'))
+    num = []
+    for i in range(n):
+	num.append(i + 1)
+ 
+    i = 0
+    k = 0
+    m = 0
+ 
+    while m < n - 1:
+	if num[i] != 0 :
+	    k += 1
+	if k == 3:
+	    num[i] = 0
+	    k = 0
+	    m += 1
+	i += 1
+	if i == n : 
+	    i = 0
+ 
+    i = 0
+    while num[i] == 0:
+	 i += 1
+    print(num[i])
+
+70.写一个函数，求一个字符串的长度，在main函数中输入字符串，并输出其长度。
+if __name__ == '__main__':
+    s = raw_input('please input a string:\n')
+    print('the string has %d characters.' % len(s))
+
+72.创建一个链表
+  ptr = []
+    for i in range(5):
+        num = int(raw_input('please input a number:\n'))
+        ptr.append(num)
+  print(ptr)
+
+
+74.列表排序及连接。
+    a = [1,3,2]
+    b = [3,4,5]
+    a.sort()     # 对列表 a 进行排序
+    print a
+ 
+    # '+'连接
+    print a+b
+    
+    # 使用extend()连接
+    a.extend(b)
+    print (a)
+
+78.找到年龄最大的人，并输出。
+    person = {"li":18,"wang":50,"zhang":20,"sun":22}  #字典
+    m = 'li'
+    for key in person.keys():
+        if person[m] < person[key]:
+            m = key
+ 
+    print ('%s,%d' % (m,person[m]))
+
+85.输入一个奇数，然后判断最少几个 9 除于该数的结果为整数。
+    num = int(raw_input('输入一个数字:\n'))
+    n1 = 1
+    count_9 = 1
+    m9 = 9
+    sum = 9
+    while n1 != 0:
+        if sum % num == 0:
+            n1 = 0
+        else:
+            m9 *= 10
+            sum += m9
+            count_9 += 1
+    print '%d 个 9 可以被 %d 整除 : %d' % (count_9,num,sum)
+    r = sum / sum
+    print('%d / %d = %d' % (sum,num,r))
+
+87.结构体变量传递
+    class student:
+        x = 0
+        c = 0
+    def f(stu):
+        stu.x = 20
+        stu.c = 'c'
+    a= student()  # 创建实例
+    f(a)
+    print(a.x,a.c)
+
+96.计算字符串中子串出现的次数。
+    str1 = raw_input('请输入一个字符串:\n')
+    str2 = raw_input('请输入一个子字符串:\n')
+    ncount = str1.count(str2)
+    print(ncount)
+
+97.从键盘输入一个字符串，将小写字母全部转换成大写字母，然后输出到一个磁盘文件"test"中保存。 
+    fp = open('test.txt','w')  # 打开文件
+    string = raw_input('please input a string:\n')
+    string = string.upper()  # 转换为大写
+    fp.write(string)  #写
+    fp = open('test.txt','r')
+    print(fp.read())  #读
+    fp.close()  # 关闭文件资源
+
+
+
+
+
+
        
 
