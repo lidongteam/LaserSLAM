@@ -5,7 +5,11 @@ Python part:
                   四. ord()返回对应的十进制整数
                   五. join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。
                        str.join(sequence) sequence -- 要连接的元素序列。
-                  六.uniform() 函数 需先导入random模块
+                  六.uniform() 函数 需先导入random模块 随机数 函数里取区间
+				  七.总str.find(要找) find函数进行定位时，总是从指定位置开始，返回找到的第一个匹配字符串的位置，而不管其后是否还有相匹配的字符串。
+				  八.open('file_name','r(只读)' or 'w(写入)')
+				     https://blog.csdn.net/Field_Yang/article/details/80586708
+				  九.reverse()函数 可以颠倒链表
 2.python注释
 3.复制列表a[:]
   list[start:end:step]
@@ -19,6 +23,10 @@ Python part:
    具体：http://blog.konghy.cn/2017/04/24/python-entry-program/
 7.lambda 能接受两个变量 lambda x,y:表达式
 8.互相交换可用a,b=b,a
+9.两个字符串连接可直接相加
+10.计时可以导入time 然后start=time.time() end=time.time() end-start 此函数返回1970到现在所经过的浮点秒数
+11.排序可使用 sort() 方法，连接可以使用 + 号或 extend() 方法
+
 Git part:
 1.推送被拒绝：一.git push -u origin +master?
               二.git pull --rebase origin master
