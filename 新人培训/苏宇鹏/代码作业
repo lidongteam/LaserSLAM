@@ -1,5 +1,4 @@
-1.
-# -*- coding:utf-8 -*-
+1.有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
 for i in range(1,5):
     for j in range(1,5):
         for k in range(1,5):
@@ -7,7 +6,7 @@ for i in range(1,5):
                 print (i,j,k,)
 				
 				
-6.# -*- coding:utf-8 -*-
+6.斐波那契数列
 def num(i):
     if i == 1 or i == 2:
          return 1;
@@ -17,7 +16,7 @@ a = input('输入一个数')
 print(num(int(a)))
 
 
-12.# -*- coding:utf-8 -*-
+12.判断101-200之间有多少个素数，并输出所有素数
 from math import sqrt
 h=0
 def su(n):
@@ -34,7 +33,7 @@ for j in range(101,201):
     su(j)
 print('The total is %d'%h)
 
-17.# -*- coding:utf-8 -*-
+17.输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
 s =input('请输入字符串：')
 dic={'letter':0,'integer':0,'space':0,'other':0}
 for i in s:
@@ -50,15 +49,15 @@ for i in dic:
     print('%s='%i,dic[i])
 	
 	
-21.
-# -*- coding:utf-8 -*-
-x2 = 1
-for day in range(9,0,-1):
-    x1 = (x2 + 1) * 2
-    x2 = x1
-print (x1)
+24.有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和。
+sum = 0
+a, b = 1, 2
+for i in range(1, 21):
+    sum += b / a
+    a, b = b, a + b
+print(sum)
 
-26.
+26.利用递归方法求5!
 # -*- coding:utf-8 -*-
 def fact(j):
     sum = 0
@@ -70,13 +69,13 @@ def fact(j):
  
 print (fact(5))
 
-32.
+32.按相反的顺序输出列表的值
 # -*- coding:utf-8 -*-
 a = ['U', 'LOVE', 'I']
 for i in a[::-1]:
     print (i)
 	
-36.
+36.求100之内的素数。
 # -*- coding:utf-8 -*-
 lower = int(input("输入区间最小值: "))
 upper = int(input("输入区间最大值: "))
@@ -89,7 +88,7 @@ for num in range(lower,upper + 1):
         else:
             print(num)
 			
-44.
+44.两个 3 行 3 列的矩阵，实现其对应位置的数据相加，并返回一个新矩阵：
 X = [[8,9,7],
     [0 ,6,7],
     [5 ,2,8]]
@@ -111,7 +110,7 @@ for i in range(len(X)):
 for r in result:
    print(r)
   
-46.
+46.求输入数字的平方，如果平方运算后小于 50 则退出
 TRUE = 1
 FALSE = 0
 def a(x):
@@ -126,7 +125,94 @@ while b:
     else:
         b = FALSE
 
-51.
+51.学习使用按位与 & 。
 a=15
 b=10
-print('%d'%(a&b))		
+print('%d'%(a&b))	
+
+56.画图，学用circle画圆形
+if __name__ == '__main__':
+    import turtle
+    turtle.title("画圆")#题目
+    turtle.setup(800,600,0,0)#设置窗口大小位置
+    pen=turtle.Turtle()#画笔设置
+    pen.color("red")
+    pen.width(5)#笔的粗细
+    pen.shape("turtle")
+    pen.speed(1)
+    pen.circle(100)#半径
+	
+	
+62.查找字符串
+a = 'suyupeng is cold'
+b = 'is'
+e = a.find(b)
+print (e)
+
+66.输入3个数a,b,c，按大小顺序输出。
+a=[]
+for i in range(3):
+    a.append(input("请输入一个数字："))
+a.sort()
+print (a)
+
+
+
+72.创建一个链表	
+if __name__ == '__main__':
+    a = []
+    for i in range(5):
+        num = int(input('please input a number:\n'))
+        a.append(num)
+    print (a)
+	
+76.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，调用函数1/1+1/3+...+1/n
+def a(n): #偶数
+    i = 0
+    s = 0.0
+    for i in range(2,n + 1,2):
+        s += 1.0 / i   
+    return s
+ 
+def b(n): #奇数
+    s = 0.0
+    for i in range(1, n + 1,2):
+        s += 1.0 / i    
+    return s
+ 
+ 
+if __name__ == '__main__':
+    n = int(input('input a number:\n'))
+    if n % 2 == 0:
+        sum = a(n)
+    else:
+        sum = b(n)
+    print (sum)	
+	
+81.809*??=800*??+9*?? 其中??代表的两位数, 809*??为四位数，8*??的结果为两位数，9*??的结果为3位数。求??代表的两位数，及809*??后的结果。
+a = 809
+for i in range(10,100):
+    b = i * a
+    if b >= 1000 and b <= 10000 and 8 * i < 100 and 9 * i >= 100:
+        print (b,' = 800 * ', i, ' + 9 * ', i)
+		
+86.两个字符串连接程序。
+if __name__ == '__main__':
+    a = "I "
+    b = "LOVE "
+    c = "HER"
+ 
+    # 连接字符串
+    d = a + b + c
+    print (d)
+96.	计算字符串中子串出现的次数
+if __name__ == '__main__':
+    a = input('请输入一个字符串:\n')
+    b = input('请输入查找词汇:\n')
+    c = a.count(b)
+    print (c)
+	
+100.列表转换为字典
+a = ['S', 'Y','P']
+b = [5,2,0]
+print ({a[i]:b[i] for i in range(3)})
