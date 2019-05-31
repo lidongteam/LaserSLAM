@@ -1,0 +1,26 @@
+Python part:
+1.python内置函数：一.raw_input()接收的为str 一般用raw_input()
+                  二.dict.items()字典(Dictionary) items() 函数以列表返回可遍历的(键, 值) 元组数组。
+				  三.reduce() reduce(function, iterable[, initializer]) function -- 函数，有两个参数 iterable -- 可迭代对象 initializer -- 可选，初始参数
+                  四. ord()返回对应的十进制整数
+                  五. join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。
+                       str.join(sequence) sequence -- 要连接的元素序列。
+                  六.uniform() 函数 需先导入random模块
+2.python注释
+3.复制列表a[:]
+  list[start:end:step]
+       start:起始位置
+       end:结束位置
+       step:步长
+4.对于一：python3中没有raw_input，只有input，input接受的为str，输入整数时记得int
+5.if not isinstance():
+    raise  异常处理
+6.if __name__ == '__main__'：我们简单的理解就是： 如果模块是被直接运行的，则代码块被运行，如果模块是被导入的，则代码块不被运行。
+   具体：http://blog.konghy.cn/2017/04/24/python-entry-program/
+7.lambda 能接受两个变量 lambda x,y:表达式
+8.互相交换可用a,b=b,a
+Git part:
+1.推送被拒绝：一.git push -u origin +master?
+              二.git pull --rebase origin master
+                 git push origin master 
+2. git add -A 是保存所有的操作，若对很多文件进行修改，可以直接使用这个指令

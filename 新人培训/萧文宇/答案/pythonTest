@@ -1,0 +1,270 @@
+5.输入三个整数x,y,z，请把这三个数由小到大输出。
+l = []
+for i in range(3):
+    x = int(raw_input('integer:\n'))
+    l.append(x)  # 向列表添加元素
+l.sort()  # 排序
+print (l)
+
+6.斐波那契数列。
+斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+# 使用递归
+def fib(n):
+    if n==1 or n==2:
+        return 1
+    return fib(n-1)+fib(n-2)
+ 
+# 输出了第10个斐波那契数列
+print (fib(10))
+
+11.古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？ 
+f1 = 1
+f2 = 1
+for i in range(1,22):
+    print ('%12ld %12ld' % (f1,f2)),
+    if (i % 3) == 0:
+        print ('')
+    f1 = f1 + f2
+    f2 = f1 + f2
+
+17.输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+import string
+s = raw_input('请输入一个字符串:\n')
+letters = 0
+space = 0
+digit = 0
+others = 0
+for c in s:
+    if c.isalpha():  # 字母
+        letters += 1
+    elif c.isspace():  # 空格
+        space += 1
+    elif c.isdigit():  # 数字
+        digit += 1
+    else:
+        others += 1  # 其他
+print ('char = %d,space = %d,digit = %d,others = %d' (letters,space,digit,others))
+
+25.求1+2!+3!+...+20!的和。
+
+n = 0
+s = 0
+t = 1
+for n in range(1,21):
+    t *= n
+    s += t
+print ('1! + 2! + 3! + ... + 20! = %d' % s)
+
+27.利用递归函数调用方式，将所输入的5个字符，以相反顺序打印出来
+def output(s,l):  # 定义一个函数
+    if l==0:
+       return
+    print (s[l-1])
+    output(s,l-1)
+s = raw_input('Input a string:')
+l = len(s)
+output(s,l)  # 调用函数
+
+34.练习函数嵌套调用
+def hello_world():
+    print 'hello world'
+ 
+def three_hellos():
+    for i in range(3):
+        hello_world()
+if __name__ == '__main__':
+    three_hellos()
+
+36.求100之内的素数
+# 用户输入数据
+lower = int(input("输入区间最小值: "))
+upper = int(input("输入区间最大值: "))
+ 
+for num in range(lower,upper + 1):
+    # 素数大于 1
+    if num > 1:
+        for i in range(2,num):
+            if (num % i) == 0:
+                break
+        else:
+            print(num)
+
+
+43.模仿静态变量(static)另一案例。
+class Num:
+    nNum = 1
+    def inc(self):
+        self.nNum += 1
+        print ('nNum = %d' % self.nNum)
+
+if __name__ == '__main__':
+    nNum = 2
+    inst = Num()
+    for i in range(3):
+        nNum += 1
+        print( 'The num = %d' % nNum)
+        inst.inc()
+
+50.输出一个随机数
+import random
+ 
+#生成 1 到 20 之间的随机数
+print random.uniform(1, 20)
+
+51.学习使用按位与 &
+if __name__ == '__main__':
+    a = 077
+    b = a & 3
+    print ('a & b = %d' % b)
+    b &= 7
+    print ('a & b = %d' % b)
+
+60.计算字符串长度。
+sStr1 = 'strlen'
+print (len(sStr1))
+
+61.打印出杨辉三角形（要求打印出10行）
+if __name__ == '__main__':
+    a = []
+    for i in range(10):
+        a.append([])
+        for j in range(10):
+            a[i].append(0)
+    for i in range(10):
+        a[i][0] = 1
+        a[i][i] = 1
+    for i in range(2,10):
+        for j in range(1,i):
+            a[i][j] = a[i - 1][j-1] + a[i - 1][j]
+    from sys import stdout
+    for i in range(10):
+        for j in range(i + 1):
+            stdout.write(str(a[i][j]))
+            stdout.write(' ')
+
+66.输入3个数a,b,c，按大小顺序输出。
+n1 = int(raw_input('n1 = :\n'))
+n2 = int(raw_input('n2 = :\n'))
+n3 = int(raw_input('n3 = :\n'))
+# 交换位置
+def swap(p1,p2):
+   return p2,p1
+
+if n1 > n2 : n1,n2 = swap(n1,n2)
+if n1 > n3 : n1,n3 = swap(n1,n3)
+if n2 > n3 : n2,n3 = swap(n2,n3)
+
+print (n1,n2,n3)
+
+69.有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位
+    nmax = 50
+    n = int(raw_input('请输入总人数:'))
+    num = []
+    for i in range(n):
+	num.append(i + 1)
+ 
+    i = 0
+    k = 0
+    m = 0
+ 
+    while m < n - 1:
+	if num[i] != 0 :
+	    k += 1
+	if k == 3:
+	    num[i] = 0
+	    k = 0
+	    m += 1
+	i += 1
+	if i == n : 
+	    i = 0
+ 
+    i = 0
+    while num[i] == 0:
+	 i += 1
+    print(num[i])
+
+70.写一个函数，求一个字符串的长度，在main函数中输入字符串，并输出其长度。
+if __name__ == '__main__':
+    s = raw_input('please input a string:\n')
+    print('the string has %d characters.' % len(s))
+
+72.创建一个链表
+  ptr = []
+    for i in range(5):
+        num = int(raw_input('please input a number:\n'))
+        ptr.append(num)
+  print(ptr)
+
+
+74.列表排序及连接。
+    a = [1,3,2]
+    b = [3,4,5]
+    a.sort()     # 对列表 a 进行排序
+    print a
+ 
+    # '+'连接
+    print a+b
+    
+    # 使用extend()连接
+    a.extend(b)
+    print (a)
+
+78.找到年龄最大的人，并输出。
+    person = {"li":18,"wang":50,"zhang":20,"sun":22}  #字典
+    m = 'li'
+    for key in person.keys():
+        if person[m] < person[key]:
+            m = key
+ 
+    print ('%s,%d' % (m,person[m]))
+
+85.输入一个奇数，然后判断最少几个 9 除于该数的结果为整数。
+    num = int(raw_input('输入一个数字:\n'))
+    n1 = 1
+    count_9 = 1
+    m9 = 9
+    sum = 9
+    while n1 != 0:
+        if sum % num == 0:
+            n1 = 0
+        else:
+            m9 *= 10
+            sum += m9
+            count_9 += 1
+    print '%d 个 9 可以被 %d 整除 : %d' % (count_9,num,sum)
+    r = sum / sum
+    print('%d / %d = %d' % (sum,num,r))
+
+87.结构体变量传递
+    class student:
+        x = 0
+        c = 0
+    def f(stu):
+        stu.x = 20
+        stu.c = 'c'
+    a= student()  # 创建实例
+    f(a)
+    print(a.x,a.c)
+
+96.计算字符串中子串出现的次数。
+    str1 = raw_input('请输入一个字符串:\n')
+    str2 = raw_input('请输入一个子字符串:\n')
+    ncount = str1.count(str2)
+    print(ncount)
+
+97.从键盘输入一个字符串，将小写字母全部转换成大写字母，然后输出到一个磁盘文件"test"中保存。 
+    fp = open('test.txt','w')  # 打开文件
+    string = raw_input('please input a string:\n')
+    string = string.upper()  # 转换为大写
+    fp.write(string)  #写
+    fp = open('test.txt','r')
+    print(fp.read())  #读
+    fp.close()  # 关闭文件资源
+
+
+
+
+
+
+       
+
