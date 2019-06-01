@@ -7,4 +7,4 @@ for i in range(1,5):
           print(i,j,k)
 print('个数为',count)   
 ######
-## #####asdfghjkl
+## #####asdfghjklasdfasdf
