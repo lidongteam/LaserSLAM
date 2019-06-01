@@ -6,5 +6,5 @@ for i in range(1,5):
           count=count+1
           print(i,j,k)
 print('个数为',count)   
-
+######
 ## #####
