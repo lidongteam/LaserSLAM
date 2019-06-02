@@ -1,0 +1,50 @@
+                              常用 git 记录
+1.初始化远程仓库
+git init
+
+2.拉取远程仓库文档
+git clone git@github.com:lidongteam/LaserSLAM.git
+
+关联一个远程库
+git remote add origin git@server-name:path/repo-name.git
+
+3.添加文件到缓冲区
+git add 
+
+4.一次性将缓冲区的文件提交到仓库
+git commit -u
+
+5.版本回退（已经commit)
+git reset --hard HEAD^ 退回上个版本
+git reset --hard 版本id
+
+6.查看版本信息
+git log  查看提交历史
+git reflog  查看命令历史
+
+7.向远程仓库推送最新修改
+git push origin master
+
+8.查看当前文件的状态
+git status
+
+9.删除（手动删除后）
+git rm + git commit或
+git add + git commit
+
+10.查看当前分支
+git branch
+
+11.创建分支
+git branch name 或
+git checkout -b name :创建并切换
+
+12.切换分支
+git checkout name
+
+13.合并某分支到当前分支
+git merge name (fast-forward模式）
+git merge --no-off -m "" name(可以看到分支合并历史）
+
+14.删除分支
+git branch -d name
