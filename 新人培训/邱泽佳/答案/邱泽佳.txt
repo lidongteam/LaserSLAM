@@ -1,0 +1,221 @@
+题目1：古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又
+生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？ 
+f1=1
+f2=1
+j=int(input("输入如今第几个月："))
+for i in range(1,j-1):
+    print(f1, f2,'',end='')
+    f1 = f1 + f2
+    f2 = f1 + f2
+
+
+总结：把前几个月的兔子输写出来，观察规律，前两项之和就是第三项，核心公式：
+第n个月的兔子数目为：f(n)=f(n-1)+f(n-2)
+解法二:递归代码
+def F(n):
+    if n <= 1:
+        return 1
+    else:
+        return F(n-1) + F(n-2)
+j=int(input("输入如今第几个月："))
+for i in range(1,j+1):
+    print(i,"-->",F(i))
+
+
+
+
+
+题目二：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+for i in range(1,5):
+    for j in range(1,5):
+        for k in range(1,5):
+            if( i != k ) and (i != j) and (j != k):
+                print i,j,k
+
+
+
+题目三：斐波那契数列。（跟题目一相似改个初始值就Ok）
+def F(n):
+    if n == 1:
+        return 1
+    elif n == 0:
+        return 0
+    else:
+        return F(n-1) + F(n-2)
+j=int(input("输入如今第几个月："))
+for i in range(1,j+1):
+    print(i,"-->",F(i))
+
+题目四：输出 9*9 乘法口诀表。
+for i in range(1, 10):
+    print #9行
+    for j in range(1, i+1):
+        print "%d*%d=%d" % (i, j, i*j),
+
+题目五：暂停一秒输出。
+import time
+ 
+myD = {1: 'a', 2: 'b'}
+for key, value in dict.items(myD):
+    print (key,value)
+    time.sleep(1) # 暂停 1 秒
+
+
+题目六：用条件运算符的嵌套来完成此题：学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+score = int(input('输入分数:\n'))
+if score >= 90:
+    grade = 'A'
+elif score >= 60:
+    grade = 'B'
+else:
+    grade = 'C'
+ 
+print ('%d 属于 %s' % (score,grade))
+
+
+题目七：输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+import string
+s = input('请输入一个字符串:\n')
+letters = 0
+space = 0
+digit = 0
+others = 0
+for c in s: #直接遍历字符串
+    if c.isalpha():
+        letters += 1
+    elif c.isspace():
+        space += 1
+    elif c.isdigit():
+        digit += 1
+    else:
+        others += 1
+print ('char = %d,space = %d,digit = %d,others = %d' % (letters,space,digit,others))
+
+
+题目八：两个字符串连接程序。
+a = "acegikm"
+b = "bdfhjlnpq"
+c = a + b
+print (c)
+
+
+题目九：809*??=800*??+9*?? 其中??代表的两位数, 809*??为四位数，8*??的结果为两位数，9*??的结果为3位数。求??代表的两位数，及809*??后的结果。
+a = 809
+for i in range(10,100):
+    b = i * a
+    if b >= 1000 and b <= 10000 and 8 * i < 100 and 9 * i >= 100:
+        print (b,' = 800 * ', i, ' + 9 * ', i)
+
+题目10:一球从100米高度自由落下，每次落地后反跳回原高度的一半；再落下，求它在第10次落地时，共经过
+多少米？第10次反弹多高？
+sum=0
+height=100
+for i in range(1,11):
+      sum=sum+height
+      height=height/2
+print('共经过',sum,'米')
+print('第十次反弹',height,'米')
+
+题目11：求100之内的素数。
+for num in range(2,101):
+        for i in range(2, num):
+            if (num % i) == 0:
+                break
+        else:
+            print(num)
+
+题目12：暂停一秒输出，并格式化当前时间。
+import time#用到了strftime函数格式化时间
+ 
+print (time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+ 
+time.sleep(1)
+ 
+print (time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+
+题目13：将一个列表的数据复制到另一个列表中。
+a = [1, 2, 3]
+b = a
+print (b)
+
+
+题目14：求1+2!+3!+...+20!的和。
+n = 0
+s = 0
+t = 1
+for n in range(1,21):
+    t *= n
+    s += t
+print ('1! + 2! + 3! + ... + 20! = %d' % s)
+
+题目15:按相反的顺序输出列表的值。
+a = ['one', 'two', 'three']
+for i in a[::-1]:
+    print (i)
+
+题目16：数字比较
+i = int(input("i="))
+j = int(input("j="))
+if i > j:
+        print ('%d 大于 %d' % (i,j))
+elif i == j:
+        print ('%d 等于 %d' % (i,j))
+elif i < j:
+        print ('%d 小于 %d' % (i,j))
+else:
+        print ("错误")
+
+题目17：求输入数字的平方，如果平方运算后小于 50 则退出。
+TRUE = 1
+FALSE = 0
+print("输入一个整数")
+a=int(input("输入一个整数"))
+print ('如果输入的数字小于 50，程序将停止运行。')
+def SQ(x):
+    return x * x
+again = 1
+while again:
+    print ('运算结果为: %d' % (SQ(a)))
+    if SQ(a) >= 50:
+        again = TRUE
+    else:
+        again = FALSE
+
+
+题目17：写一个函数，求一个字符串的长度，在main函数中输入字符串，并输出其长度。
+s = input('please input a string:\n')
+print ('the string has %d characters.' % len(s))
+
+题目18：创建一个链表。
+a = []
+for i in range(5):
+        num = input('请输入:')
+        a.append(num)
+print(a)
+
+　
+题目19：查找字符串。　　
+sStr1 = 'abcdefg'
+sStr2 = 'cde'
+print (sStr1.find(sStr2))
+
+
+题目20：画图，学用rectangle画方形。
+if __name__ == '__main__':
+    from tkinter import *
+    root = Tk()
+    root.title('Canvas')
+    canvas = Canvas(root,width = 400,height = 400,bg = 'yellow')
+    x0 = 263
+    y0 = 263
+    y1 = 275
+    x1 = 275
+    for i in range(19):
+        canvas.create_rectangle(x0,y0,x1,y1)
+        x0 -= 5
+        y0 -= 5
+        x1 += 5
+        y1 += 5
+        
+    canvas.pack()
+    root.mainloop()
