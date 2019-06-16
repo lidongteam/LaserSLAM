@@ -18,3 +18,7 @@ e: 		切换到e盘
 cd E:\TDproject\TDTest  		切换到这个目录
 mklink /j cppfile E:\TDproject\AliGit\Ali\TDTest\cppfile		在当前路径下创建一个cppfile，软连接到E:\TDproject\AliGit\Ali\TDTest\cppfile
 
+配置需要的头文件，静态库文件
+https://pan.baidu.com/s/1NHc6JLlWcmjA1O_nK-jmtQ
+
+提取码：zox6
