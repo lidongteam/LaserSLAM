@@ -1,0 +1,20 @@
+1，使用“属性管理器”，新建一个属性，配置pcl的release下的环境，添加到项目中
+2，在项目文件夹下，软连接cppfile 和 headfile，然后项目中从这两个文件夹加入cpp文件和头文件
+3，编译运行使不报错
+
+参考
+https://blog.csdn.net/weixin_41991128/article/details/83864713
+
+软连接的用法
+打开cmd窗口
+
+切换到项目文件夹下
+执行下面的指令
+mklink /j 创建的文件夹叫什么名字这里写什么名字 目标路径
+
+例
+输入例子
+e: 		切换到e盘
+cd E:\TDproject\TDTest  		切换到这个目录
+mklink /j cppfile E:\TDproject\AliGit\Ali\TDTest\cppfile		在当前路径下创建一个cppfile，软连接到E:\TDproject\AliGit\Ali\TDTest\cppfile
+
