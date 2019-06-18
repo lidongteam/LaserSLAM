@@ -1,0 +1,2 @@
+文档：配置python+pcl环境记录.note
+链接：http://note.youdao.com/noteshare?id=c4773a20e4ae5c834b62286df7c5804a
