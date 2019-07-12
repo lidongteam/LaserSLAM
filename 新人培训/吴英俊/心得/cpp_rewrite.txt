@@ -1,2 +1,139 @@
 真正秃头路开始...
+资料集合：
+这个是有关pcl的相关资料，还算比较全 https://www.cnblogs.com/li-yao7758258/category/954066.html
+基于PCL实现点云框选功能 https://blog.csdn.net/ivy8966/article/details/58073286
+cpp中 vector的使用方法 https://blog.csdn.net/duan19920101/article/details/50617190
+vector中insert的使用方法 https://blog.csdn.net/duan19920101/article/details/51557854
+cpp：
 2019.7.9
+1.using namespace : 名空间 （感觉很像函数）
+2.
+
+代码功能：
+1.
+void correctClouds::setInputCloud(PointCloud<PointXYZL>::Ptr cloud_)
+{
+    cloud = cloud_;
+}
+std::vector< int > sum_index(std::vector<std::vector< int >> cloud_index)
+{
+    std::vector<int> vec3;
+    for(int i=0;i<cloud_index.size();i++)
+    {
+        vec3.insert(vec3.end(),cloud_index[i].begin(),cloud_index[i].end());
+    }
+    return vec3;
+}
+//
+
+2.
+void DeleteDupNumbers(vector<int> &nums)
+   {
+       vector<int>::iterator it, it1;
+       for (it = ++nums.begin(); it != nums.end();)
+       {
+           it1 = find(nums.begin(), it, *it); //若当前位置之前存在重复元素，删除当前元素,erase返回当前元素的下一个元素指针
+           if (it1 != it)
+               it = nums.erase(it);
+           else
+               it++;
+       }
+
+   }
+   
+3.
+void correctClouds::getclouds(PointCloud<PointXYZL>::Ptr &cloud_p,PointCloud<PointXYZL>::Ptr &cloud_n)
+{
+    std::vector<int> sum_indexs=sum_index(cloud_indices);
+    if(sum_indexs.size()>0){
+    DeleteDupNumbers(sum_indexs);
+    boost::shared_ptr<std::vector<int>> index_ptr = boost::make_shared<std::vector<int>>(sum_indexs);
+    // Create the filtering object
+    pcl::ExtractIndices<pcl::PointXYZL> extract;
+    // Extract the inliers
+    extract.setInputCloud (cloud);
+    extract.setIndices (index_ptr);
+    extract.setNegative (false);//如果设为true,可以提取指定index之外的点云
+    extract.filter (*cloud_p);
+    extract.setNegative (true);//如果设为true,可以提取指定index之外的点云
+    extract.filter (*cloud_n);
+}}
+
+4.
+void correctClouds::pp_callback(const pcl::visualization::AreaPickingEvent& event, void* args)
+{
+    std::vector< int > indices;
+
+    if (event.getPointsIndices(indices)==-1)
+        return;
+    cloud_indices.push_back(indices);
+    pcl::PointCloud<pcl::PointXYZL>::Ptr object_cloud (new pcl::PointCloud<pcl::PointXYZL>);
+
+    for (int i = 0; i < indices.size(); ++i)
+    {
+        clicked_points_3d->points.push_back(cloud->points.at(indices[i]));
+    }
+    //    clicked_points_3d[num]=*object_cloud;
+    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZL> red(clicked_points_3d, 0, 255, 0);
+
+    std::string cloudName;
+    std::stringstream ss;
+    num++;
+    ss << num;
+    ss >> cloudName;
+    cloudName += "_cloudName";
+    viewer_cloud->addPointCloud(clicked_points_3d, red, cloudName);
+    viewer_cloud->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloudName);
+    flag=true;
+}
+//此部分实现的是点云连续框选的功能
+
+5.
+void correctClouds::keyboardEventOccurred(const pcl::visualization::KeyboardEvent& event, void* nothing){
+    if(event.getKeySym() == "space" && event.keyDown()&&flag){
+        if(num>-1)
+        {
+            std::string cloudName;
+            std::stringstream ss;
+            ss << num;
+            ss >> cloudName;
+            num--;
+            cloudName += "_cloudName";
+            clicked_points_3d->clear();
+            cloud_indices.pop_back();
+            viewer_cloud->removePointCloud(cloudName);
+        }
+    }
+}
+
+6.
+void correctClouds::addlabel(PointCloud<PointXYZL>::Ptr &cloud,float label)
+{
+    for(int i=0;i<cloud->size();i++)
+    {
+        cloud->points[i].label=label;
+    }
+}
+
+7.
+void correctClouds::addcloud(PointCloud<PointXYZL>::Ptr &cloud1,
+                             PointCloud<PointXYZL>::Ptr &cloud2)
+
+{
+   *cloud2=*cloud1+*cloud2;
+}
+
+8.
+void correctClouds::addcloud(PointCloud<PointXYZL>::Ptr &cloud1,
+                             PointCloud<PointXYZL>::Ptr &cloud2,
+                             PointCloud<PointXYZL>::Ptr &cloud3,
+                              PointCloud<PointXYZL>::Ptr &cloud4,
+                             PointCloud<PointXYZL>::Ptr &cloud5)
+
+{
+    PointCloud<PointXYZL>::Ptr cloud(new PointCloud<PointXYZL>);
+   *cloud=*cloud1+*cloud2;
+   *cloud=*cloud+*cloud3;
+    *cloud5=*cloud+*cloud4;
+
+}
