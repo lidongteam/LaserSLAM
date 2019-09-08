@@ -1,0 +1,9 @@
+命名要求：驼峰式AaBbCc
+数字:对象前加i    例如iCnt=123
+字符:对象前加s    例如sName=abc
+列表:对象前加l    例如lPoints=[1,2,3]
+字典:对象前加d    例如dActor={'a':1,'b':2}
+元组:对象前加t    例如tPoint=(0,0,0)
+实例化:对象前加o  例如oCamera=vtk.vtkCamera
+成员变量:member   例如self.m_dActor
+全局变量:globle   例如self.g_dActor
